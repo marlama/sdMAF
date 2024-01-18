@@ -3,6 +3,7 @@
 ### After applying the Harmonization pipeline from (Leal., et al 2022) we needed to change the CHR code before use the sdMAF algorithm:
 
 ### Filter Cases 
+```
 plink2 --vcf ASD_XWASQC_chrX_sexFixed_Norm_Ref_Phased_EUR.vcf.gz --make-bed --out ASD_XWASQC_chrX_sexFixed_Norm_Ref_Phased_EUR
 
 awk  '{if ($2 == 1) {print "0""\t"$1}}' XWAS_Covariants.txt > XWAS_CasesList.txt
@@ -10,7 +11,7 @@ awk  '{if ($2 == 1) {print "0""\t"$1}}' XWAS_Covariants.txt > XWAS_CasesList.txt
 plink --bfile ASD_XWASQC_chrX_sexFixed_Norm_Ref_Phased_EUR --keep XWAS_CasesList.txt --make-bed --out ASD_XWASQC_chrX_sexFixed_Norm_Ref_Phased_EUR_OnlyCases
 
 418652 variants and 6873 people
-
+```
 
 ### Add Info
 awk  '{if ($2 == 1) {print "0""\t"$1"\t"$4}}' XWAS_Covariants.txt > XWAS_CasesSexInfo.txt

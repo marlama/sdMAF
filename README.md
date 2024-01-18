@@ -1,4 +1,4 @@
-# pipeline used for sdMAF application in Austism WGS data:
+# Pipeline used for sdMAF application in Autism WGS data:
 
 ### After applying the Harmonization pipeline from (Leal., et al 2022) we needed to change the CHR code before use the sdMAF algorithm:
 

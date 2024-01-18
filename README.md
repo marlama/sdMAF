@@ -1,6 +1,6 @@
 # pipeline used for sdMAF application in Austism WGS data:
 
-## After applying the Harmonization pipeline from (Leal., et al 2022) we needed to change the CHR code before use the sdMAF algorithm:
+### After applying the Harmonization pipeline from (Leal., et al 2022) we needed to change the CHR code before use the sdMAF algorithm:
 
 ### Filter Cases 
 plink2 --vcf ASD_XWASQC_chrX_sexFixed_Norm_Ref_Phased_EUR.vcf.gz --make-bed --out ASD_XWASQC_chrX_sexFixed_Norm_Ref_Phased_EUR
@@ -30,7 +30,7 @@ Cases 418652 variants and 6873 people
 Controls 418652 variants and 8981 people
 
 ### Change chr connotation
-for pop in Cases Controls ; do awk '{print $2"\t""22"}' ASD_XWASQC_chrX_sexFixed_Norm_Ref_Phased_EUR_Only${pop}_Info_PAR.bim > ASD_XWASQC_chrX_sexFixed_Norm_Ref_Phased_EUR_Only${pop}_Info_PAR_UpdateID.txt ; done
+for pop in Cases Controls ; do awk '{print$2"\t""22"}' ASD_XWASQC_chrX_sexFixed_Norm_Ref_Phased_EUR_Only${pop}_Info_PAR.bim > ASD_XWASQC_chrX_sexFixed_Norm_Ref_Phased_EUR_Only${pop}_Info_PAR_UpdateID.txt ; done
 
 for pop in Cases Controls ; do plink --bfile ASD_XWASQC_chrX_sexFixed_Norm_Ref_Phased_EUR_Only${pop}_Info --update-chr ASD_XWASQC_chrX_sexFixed_Norm_Ref_Phased_EUR_Only${pop}_Info_PAR_UpdateID.txt --make-bed --out ASD_XWASQC_chrX_sexFixed_Norm_Ref_Phased_EUR_Only${pop}_Info_UpdatedCHR ; done 
 
